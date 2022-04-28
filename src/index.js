@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, nativeTheme } = require("electron");
+const { app, BrowserWindow, ipcMain, nativeTheme, Menu } = require("electron");
 const path = require("path");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -17,6 +17,8 @@ const createWindow = () => {
       contextIsolation: true,
       preload: path.join(__dirname, "preload.js"),
     },
+    autoHideMenuBar: true,
+    icon: __dirname + "./../assets/icon.ico",
   });
 
   // and load the index.html of the app.
